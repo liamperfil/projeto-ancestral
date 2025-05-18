@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body {
+  margin: 0;
+}
+
+#menu_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #333;
+  color: white;
+  padding: 1rem;
+  transition: top 1.3s;
+  z-index: 1000;
+}
+
+.content {
+  height: 2000px; /* apenas para simular rolagem */
+  padding-top: 70px; /* espaço para o menu */
+}
+        
+    </style>
+</head>
+<body>
+
+    <div id="menu_container">Meu Menu</div>
+    <div class="content">
+      <!-- Conteúdo para rolar -->
+    </div>
+
+    <script>
+        let lastScrollTop = 0;
+        const menu = document.getElementById('menu_container');
+      
+        window.addEventListener('scroll', () => {
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+          if (scrollTop > lastScrollTop) {
+            // Rolando para baixo
+            menu.style.top = '-100px'; // Esconde o menu
+          } else {
+            // Rolando para cima
+            menu.style.top = '0'; // Mostra o menu
+          }
+      
+          lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+      </script>
+      
+    
+</body>
+</html>
