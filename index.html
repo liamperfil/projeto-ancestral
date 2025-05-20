@@ -4,807 +4,398 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto Ancestral | Dança, Teatro e Culinária</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --cor-primaria: #8B4513;
-            --cor-secundaria: #F5DEB3;
-            --cor-destaque: #CD5C5C;
-            --cor-texto: #333;
-            --cor-fundo: #fff8ea;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            max-width: 1600px;
-            margin: 0 auto;
-        }
-        
-        body {
-            background-color: var(--cor-fundo);
-            color: var(--cor-texto);
-            line-height: 1.6;
-        }
-        
-        .menu_container, #menu_container {
-            display: flex;
-            flex-direction: row; /* em linha */
-            justify-content: space-between; /* espaça entre logo e nav */
-            align-items: center; /* alinha verticalmente */
-            padding: 8px 0px;
-            /*border-bottom: 1px solid #ccc;*/
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-
-            background-color: rgba(0, 0, 0, 0.6);
-            position: fixed;
-            width: 100%;
-            transition: top 1s;
-        }
-
-        .logo2 {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--cor-fundo);
-        }
-
-        nav .containernav {
-            display: flex;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--cor-fundo);
-            font-weight: 500;
-            transition: 0.4s;
-            padding: 0.7rem 1rem;
-            border-radius: 5px;
-        }
-
-        nav a:hover {
-            background-color: rgba(255,255,255,0.1);
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 0;
-        }
-
-        .content-celular{
-            display: none;
-        }
-        
-        header {
-            position: relative;
-            text-align: center;
-            color: white;
-            height: 100vh;
-            min-height: 600px;
-            overflow: hidden;
-        }
-
-        .video-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1;
-        }
-        
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            z-index: 1;
-        }
-        
-        .video-foreground {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translateX(-50%) translateY(-50%);
-            z-index: 0;
-        }
-        
-        .video-foreground iframe {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100vw;
-            height: 56.25vw; /* 16:9 aspect ratio */
-            min-height: 100%;
-            min-width: 177.77vh; /* 16:9 aspect ratio */
-            transform: translateX(-50%) translateY(-50%);
-            pointer-events: none;
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            padding: 0 1rem;
-        }
-        
-        .logo {
-            font-size: 3rem;
-            font-weight: bold;
-            color: white;
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        }
-        
-        .header-content h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        }
-        
-        .header-content p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-        }
-        
-        
-        .hero {
-            text-align: center;
-            padding: 3rem 0;
-        }
-        
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--cor-primaria);
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--cor-destaque);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s;
-            margin: 0.5rem;
-        }
-        
-        .btn:hover {
-            background-color: #a04545;
-        }
-        
-        .btn-secondary {
-            background-color: var(--cor-primaria);
-        }
-        
-        .btn-secondary:hover {
-            background-color: #6a340e;
-        }
-
-        .header-buttons {
-            margin-top: 2rem;
-        }
-
-        section {
-            padding: 4rem 0;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        section h2 {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: var(--cor-primaria);
-            position: relative;
-            padding-bottom: 1rem;
-        }
-        
-        section h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--cor-destaque);
-        }
-
-        .card-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-        }
-        
-        .card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            width: 300px;
-        }
-        
-        .card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .card-img {
-            height: 200px;
-            background-color: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .card-content {
-            padding: 1.5rem;
-        }
-        
-        .card h3 {
-            margin-bottom: 1rem;
-            color: var(--cor-primaria);
-        }
-        
-        .escolas {
-            background-color: var(--cor-secundaria);
-            text-align: center;
-        }
-        
-        .escolas-lista {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .escola-card {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            width: 300px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .cronograma table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 2rem;
-        }
-        
-        .cronograma th, .cronograma td {
-            padding: 1rem;
-            text-align: left;
-            border: 1px solid #ddd;
-        }
-        
-        .cronograma th {
-            background-color: var(--cor-primaria);
-            color: white;
-        }
-        
-        .cronograma tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        
-        .contato-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-        
-        .form-group input, .form-group textarea, .form-group select {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        
-        .form-group textarea {
-            min-height: 150px;
-        }
-        
-        footer {
-            background-color: var(--cor-primaria);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-        
-        .social-links {
-            margin: 1rem 0;
-        }
-        
-        .social-links a {
-            color: white;
-            margin: 0 0.5rem;
-            font-size: 1.5rem;
-            text-decoration: none;
-        }
-        
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        
-        .gallery-item {
-            height: 333px;
-            width: 250px;
-            border-radius: 10px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.3);
-            transition: transform 0.5s;
-        }
-        
-        @media (max-width: 768px) {
-            .content-celular{
-                display: flex;
-                text-align: center;
-                justify-content: center;
-                align-items: center;
-                padding-top: 220px;
-                height: 350px;
-            }
-            
-            header {
-                height: 80vh;
-                min-height: 500px;
-                background-color: var(--cor-primaria);
-                display: none;
-            }
-            
-            .logo, .logo2 {
-                font-size: 2rem;
-            }
-            
-            .header-content h1 {
-                font-size: 1.8rem;
-            }
-            
-            .header-content p {
-                font-size: 1rem;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .card {
-                width: 100%;
-            }
-            
-            .escola-card {
-                width: 100%;
-            }
-            
-            /* Ajustes responsivos para o menu */
-            nav .containernav {
-                flex-direction: column;
-                align-items: flex-end;
-            }
-
-            nav a {
-                margin: 10px 0;
-            }
-
-            nav a.contato-btn {
-                margin-top: 10px;
-            }
-        }
-    </style>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="menu_container" id="menu_container">
-        <div class="logo2">
-            ANCESTRAL
-        </div>
-        <nav>
-            <div class="containernav">
-                <a href="#top">início</a><a href="#sobre">sobre</a>
-                <a href="#escolas">escolas</a>
-                <a href="#cronograma">cronograma</a>
-                <a href="#galeria">galeria</a>
-                <a href="#contato" class="btn-contato">contato</a>
+<body data-bs-spy="scroll" data-bs-target="#navbar-ancestral">
+
+    <nav id="navbar-ancestral" class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#top">ANCESTRAL</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAncestral" aria-controls="navbarNavAncestral" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAncestral">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#top">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#atividades">Atividades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#escolas">Escolas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#cronograma">Cronograma</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#galeria">Galeria</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#contato">Contato</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
-    </div>
-    <div class="content-celular">
-        <!-- Conteúdo para rolar -->
-        <h1>Dança, Teatro e Culinária</h1>
-        <div class="header-buttons">
-            <a href="#inscricao" class="btn">Inscreva-se</a>
-            <a href="#sobre" class="btn btn-secondary">Saiba Mais</a>
         </div>
-    </div>
-    <header>
-        <div class="video-background">
+    </nav>
+
+    <section id="top" class="hero d-flex align-items-center">
+        <div class="video-container">
             <div class="video-overlay"></div>
-            <div class="video-foreground">
-                <iframe src="https://www.youtube.com/embed/Xu5h9mMbiDs?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=Xu5h9mMbiDs&mute=1" frameborder="0" allowfullscreen></iframe>
-            </div>
+            <iframe class="video-bg" src="https://www.youtube.com/embed/Xu5h9mMbiDs?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=Xu5h9mMbiDs&mute=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
-        <div class="header-content">
-            <div class="logo-container">
-                <div class="logo">ANCESTRAL</div>
-            </div>
-            <h1>Dança, Teatro e Culinária</h1>
-            <p>Resgatando nossas raízes culturais indígenas e quilombolas na Bahia</p>
-            <div class="header-buttons">
-                <a href="#inscricao" class="btn">Inscreva-se</a>
-                <a href="#sobre" class="btn btn-secondary">Saiba Mais</a>
-            </div>
-        </div>
-    </header>
-    
-    <section id="sobre">
-        <div class="container">
-            <h2>Sobre o Projeto</h2>
-            <p>O Projeto Ancestral nasceu da necessidade de valorizar e preservar as culturas indígenas e quilombolas da Bahia, promovendo o conhecimento e a vivência dessas tradições entre os jovens estudantes. Através de uma formação artística abrangente, buscamos combater o apagamento histórico dessas culturas e incentivar o respeito à diversidade cultural no ambiente escolar.</p>
-            <br>
-            <p>O projeto Raízes Vivas, parte integrante do Projeto Ancestral, busca valorizar as culturas quilombolas e indígenas entre os jovens de Itinga, promovendo o reconhecimento de suas raízes e fortalecendo sua identidade cultural. Através da dança e do teatro, os estudantes terão a oportunidade de vivenciar essas tradições, combatendo o apagamento histórico e incentivando o respeito à diversidade cultural no ambiente escolar.</p>
-            <br>
-            <p>As atividades incluem aulas de dança, teatro e culinária tradicional, sempre com o foco no resgate e valorização dos saberes ancestrais. Ao final do projeto, os participantes apresentarão um musical acompanhado de uma mostra de comidas típicas dos povos étnico-raciais para toda a comunidade escolar.</p>
-        </div>
-    </section>
-    
-    <section id="atividades">
-        <div class="container">
-            <h2>Nossas Atividades</h2>
-            <div class="card-container">
-                <div class="card">
-                    <div class="card-img">
-                        <img src="midia/card1.jpg" alt="Dança Ancestral" width="300" height="200">
-                    </div>
-                    <div class="card-content">
-                        <h3>Dança</h3>
-                        <p>Aulas de danças tradicionais indígenas e quilombolas, explorando os ritmos, movimentos e significados culturais por trás de cada expressão corporal.</p>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-img">
-                        <img src="midia/card2.jpg" alt="Teatro Ancestral" width="300" height="200">
-                    </div>
-                    <div class="card-content">
-                        <h3>Teatro</h3>
-                        <p>Atividades teatrais baseadas em histórias e lendas das culturas indígenas e quilombolas, permitindo aos alunos incorporarem personagens e vivenciarem narrativas ancestrais.</p>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-img">
-                        <img src="midia/card3.jpg" alt="Culinária Ancestral" width="300" height="200">
-                    </div>
-                    <div class="card-content">
-                        <h3>Culinária</h3>
-                        <p>Oficinas de culinária tradicional, ensinando o preparo de alimentos e pratos típicos, com destaque para ingredientes nativos e técnicas de preparo ancestrais.</p>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-img">
-                        <img src="midia/card4.jpg" alt="Roda de Conversa" width="300" height="200">
-                    </div>
-                    <div class="card-content">
-                        <h3>Roda de Conversa</h3>
-                        <p>Espaço de diálogo onde os participantes podem compartilhar seus conhecimentos prévios sobre a cultura e suas expectativas para o projeto.</p>
-                    </div>
+        <div class="container hero-content text-center">
+            <div data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="hero-title display-3 fw-bold mb-3">ANCESTRAL</h1>
+                <h2 class="hero-subtitle h3 fw-light mb-4">Dança, Teatro e Culinária</h2>
+                <p class="hero-text lead mb-5 mx-auto">Resgatando nossas raízes culturais indígenas e quilombolas na Bahia</p>
+                <div>
+                    <a href="#contato" class="btn btn-custom btn-accent me-sm-3 mb-3 mb-sm-0">Inscreva-se</a>
+                    <a href="#sobre" class="btn btn-custom btn-outline">Saiba Mais</a>
                 </div>
             </div>
         </div>
     </section>
-    
-    <section id="escolas" class="escolas">
+
+    <section id="sobre" class="section-padding">
         <div class="container">
-            <h2>Escolas Participantes</h2>
-            <p>O Projeto Ancestral está sendo implementado nas seguintes instituições de ensino:</p>
-            <div class="escolas-lista">
-                <div class="escola-card">
-                    <h3>Colégio 2 de Julho</h3>
-                    <p>Instituição comprometida com a valorização da diversidade cultural e o resgate das tradições ancestrais.</p>
-                </div>
-                
-                <div class="escola-card">
-                    <h3>Colégio Euclides Sant'anna</h3>
-                    <p>Escola que incentiva a expressão artística e a preservação do patrimônio cultural imaterial da Bahia.</p>
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Sobre o Projeto</h2>
+                <hr class="title-divider mx-auto">
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
+                    <p class="mb-4">O Projeto Ancestral nasceu da necessidade de valorizar e preservar as culturas indígenas e quilombolas da Bahia, promovendo o conhecimento e a vivência dessas tradições entre os jovens estudantes. Através de uma formação artística abrangente, buscamos combater o apagamento histórico dessas culturas e incentivar o respeito à diversidade cultural no ambiente escolar.</p>
+                    <p class="mb-4">O projeto Raízes Vivas, parte integrante do Projeto Ancestral, busca valorizar as culturas quilombolas e indígenas entre os jovens de Itinga, promovendo o reconhecimento de suas raízes e fortalecendo sua identidade cultural. Através da dança e do teatro, os estudantes terão a oportunidade de vivenciar essas tradições, combatendo o apagamento histórico e incentivando o respeito à diversidade cultural no ambiente escolar.</p>
+                    <p>As atividades incluem aulas de dança, teatro e culinária tradicional, sempre com o foco no resgate e valorização dos saberes ancestrais. Ao final do projeto, os participantes apresentarão um musical acompanhado de uma mostra de comidas típicas dos povos étnico-raciais para toda a comunidade escolar.</p>
                 </div>
             </div>
         </div>
     </section>
-    
-    <section id="cronograma">
+
+    <section id="atividades" class="section-padding bg-light-custom">
         <div class="container">
-            <h2>Cronograma de Atividades</h2>
-            <p style="text-align: center; margin: 10px auto;">As aulas acontecerão 2 dias por semana, totalizando 4 horas semanais. Veja abaixo o cronograma detalhado:</p>
-          
-            <table class="cronograma" style="text-align: center; margin: 0 auto;">
-                <thead>
-                    <tr>
-                        <th>Dia</th>
-                        <th>Horário</th>
-                        <th>Atividade</th>
-                        <th>Local</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Terça-feira</td>
-                        <td>14:00 - 16:00</td>
-                        <td>Aulas de Dança</td>
-                        <td>Sala Multiuso</td>
-                    </tr>
-                    <tr>
-                        <td>Quinta-feira</td>
-                        <td>14:00 - 16:00</td>
-                        <td>Aulas de Teatro</td>
-                        <td>Auditório</td>
-                    </tr>
-                    <tr>
-                        <td>Sábado (quinzenal)</td>
-                        <td>09:00 - 12:00</td>
-                        <td>Oficinas de Culinária</td>
-                        <td>Cozinha Experimental</td>
-                    </tr>
-                    <tr>
-                        <td>Último sábado do mês</td>
-                        <td>14:00 - 16:00</td>
-                        <td>Roda de Conversa</td>
-                        <td>Pátio Central</td>
-                    </tr>
-                    <tr>
-                        <td>Final do Projeto</td>
-                        <td>À definir</td>
-                        <td>Musical e Mostra Gastronômica</td>
-                        <td>Auditório Principal</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-    
-    <section id="galeria">
-        <div class="container">
-            <h2>Galeria</h2>
-            <p style="text-align: center; margin: 0 auto;">Conheça um pouco das nossas atividades e apresentações anteriores:</p>
-            
-            <div class="gallery">
-                <div class="gallery-item">
-                    <img src="midia/gallery_01.jpg" alt="Atividade de Dança" width="250">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Nossas Atividades</h2>
+                <hr class="title-divider mx-auto">
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                    <div class="activity-card">
+                        <div class="activity-img-wrapper">
+                            <img src="api/midia/card1.jpg" alt="Dança Ancestral" class="activity-img">
+                        </div>
+                        <div class="activity-content">
+                            <h3 class="activity-title h5">Dança</h3>
+                            <p class="small">Aulas de danças tradicionais indígenas e quilombolas, explorando os ritmos, movimentos e significados culturais.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="midia/gallery_02.jpg" alt="Apresentação de Teatro" width="250">
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+                    <div class="activity-card">
+                        <div class="activity-img-wrapper">
+                            <img src="api/midia/card2.jpg" alt="Teatro Ancestral" class="activity-img">
+                        </div>
+                        <div class="activity-content">
+                            <h3 class="activity-title h5">Teatro</h3>
+                            <p class="small">Atividades teatrais baseadas em histórias e lendas das culturas indígenas e quilombolas, vivenciando narrativas ancestrais.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="midia/gallery_03.jpg" alt="Oficina de Culinária" width="250">
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+                    <div class="activity-card">
+                        <div class="activity-img-wrapper">
+                            <img src="api/midia/card3.jpg" alt="Culinária Ancestral" class="activity-img">
+                        </div>
+                        <div class="activity-content">
+                            <h3 class="activity-title h5">Culinária</h3>
+                            <p class="small">Oficinas de culinária tradicional, ensinando o preparo de alimentos e pratos típicos com ingredientes nativos.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="midia/gallery_04.jpg" alt="Roda de Conversa" width="250">
-                </div>
-                <div class="gallery-item">
-                    <img src="midia/gallery_05.jpg" alt="Preparo de Alimentos Tradicionais" width="250">
-                </div>
-                <div class="gallery-item">
-                    <img src="midia/gallery_06.jpg" alt="Ensaio do Musical" width="250">
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+                    <div class="activity-card">
+                         <div class="activity-img-wrapper">
+                            <img src="api/midia/card4.jpg" alt="Roda de Conversa" class="activity-img">
+                        </div>
+                        <div class="activity-content">
+                            <h3 class="activity-title h5">Roda de Conversa</h3>
+                            <p class="small">Espaço de diálogo para compartilhar conhecimentos prévios sobre a cultura e expectativas para o projeto.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <section id="inscricao">
+
+    <section id="escolas" class="section-padding">
         <div class="container">
-            <h2>Inscrição</h2>
-            <p style="text-align: center; margin: 10px auto;">Preencha o formulário abaixo para participar do Projeto Ancestral:</p>
-            
-            <div class="contato-form">
-                <form>
-                    <div class="form-group">
-                        <label for="nome">Nome Completo</label>
-                        <input type="text" id="nome" name="nome" required>
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Escolas Participantes</h2>
+                 <hr class="title-divider mx-auto">
+                <p class="lead fs-6 fw-light mt-3">O Projeto Ancestral está sendo implementado nas seguintes instituições:</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-5" data-aos="fade-up" data-aos-delay="200">
+                    <div class="school-card">
+                        <h3 class="school-title h5">Colégio 2 de Julho</h3>
+                        <p class="small">Instituição comprometida com a valorização da diversidade cultural e o resgate das tradições ancestrais.</p>
+                        <div class="d-flex align-items-center text-muted small mt-3">
+                            <i class="bi bi-geo-alt-fill me-2 text-accent"></i>
+                            <span>Salvador, Bahia</span>
+                        </div>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="idade">Idade</label>
-                        <input type="number" id="idade" name="idade" required>
+                </div>
+                <div class="col-md-6 col-lg-5" data-aos="fade-up" data-aos-delay="300">
+                    <div class="school-card">
+                        <h3 class="school-title h5">Colégio Euclides Sant'anna</h3>
+                        <p class="small">Escola que incentiva a expressão artística e a preservação do patrimônio cultural imaterial da Bahia.</p>
+                        <div class="d-flex align-items-center text-muted small mt-3">
+                            <i class="bi bi-geo-alt-fill me-2 text-accent"></i>
+                            <span>Salvador, Bahia</span>
+                        </div>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="escola">Escola</label>
-                        <select id="escola" name="escola" required>
-                            <option value="">Selecione a escola</option>
-                            <option value="2dejulho">Colégio 2 de Julho</option>
-                            <option value="euclides">Colégio Euclides Sant'anna</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="serie">Série/Ano</label>
-                        <input type="text" id="serie" name="serie" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="responsavel">Nome do Responsável</label>
-                        <input type="text" id="responsavel" name="responsavel" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="telefone">Telefone de Contato</label>
-                        <input type="tel" id="telefone" name="telefone" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="interesse">Área de Maior Interesse</label>
-                        <select id="interesse" name="interesse" required>
-                            <option value="">Selecione uma opção</option>
-                            <option value="danca">Dança</option>
-                            <option value="teatro">Teatro</option>
-                            <option value="culinaria">Culinária</option>
-                            <option value="todas">Todas as áreas</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="expectativa">O que você espera do projeto?</label>
-                        <textarea id="expectativa" name="expectativa" required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn">Enviar Inscrição</button>
-                </form>
+                </div>
             </div>
         </div>
     </section>
-    
-    <section id="contato">
+
+    <section id="cronograma" class="section-padding bg-light-custom">
         <div class="container">
-            <h2>Entre em Contato</h2>
-            <p style="text-align: center; margin: 10px auto;">Para mais informações sobre o Projeto Ancestral, entre em contato conosco:</p>
-            
-            <div class="contato-form">
-                <form>
-                    <div class="form-group">
-                        <label for="nome-contato">Nome</label>
-                        <input type="text" id="nome-contato" name="nome" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email-contato">E-mail</label>
-                        <input type="email" id="email-contato" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="assunto">Assunto</label>
-                        <input type="text" id="assunto" name="assunto" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="mensagem">Mensagem</label>
-                        <textarea id="mensagem" name="mensagem" required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn">Enviar Mensagem</button>
-                </form>
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Cronograma de Atividades</h2>
+                <hr class="title-divider mx-auto">
+                <p class="lead fs-6 fw-light mt-3">As aulas acontecerão 2 dias por semana (4h semanais). Veja o cronograma:</p>
+            </div>
+            <div class="schedule-wrapper" data-aos="fade-up" data-aos-delay="200">
+                <div class="table-responsive">
+                    <table class="table table-hover schedule-table align-middle">
+                        <thead class="table-dark-custom">
+                            <tr>
+                                <th scope="col">Dia</th>
+                                <th scope="col">Horário</th>
+                                <th scope="col">Atividade</th>
+                                <th scope="col">Local</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><i class="bi bi-calendar-week me-2 text-accent"></i>Terça-feira</td>
+                                <td>14:00 - 16:00</td>
+                                <td>Aulas de Dança</td>
+                                <td>Sala Multiuso</td>
+                            </tr>
+                            <tr>
+                                <td><i class="bi bi-calendar-week me-2 text-accent"></i>Quinta-feira</td>
+                                <td>14:00 - 16:00</td>
+                                <td>Aulas de Teatro</td>
+                                <td>Auditório</td>
+                            </tr>
+                            <tr>
+                                <td><i class="bi bi-calendar-week me-2 text-accent"></i>Sábado (quinzenal)</td>
+                                <td>09:00 - 12:00</td>
+                                <td>Oficinas de Culinária</td>
+                                <td>Cozinha Experimental</td>
+                            </tr>
+                            <tr>
+                                <td><i class="bi bi-calendar-week me-2 text-accent"></i>Último sábado do mês</td>
+                                <td>14:00 - 16:00</td>
+                                <td>Roda de Conversa</td>
+                                <td>Pátio Central</td>
+                            </tr>
+                            <tr>
+                                <td><i class="bi bi-calendar-event me-2 text-accent"></i>Final do Projeto</td>
+                                <td>À definir</td>
+                                <td>Musical e Mostra Gastronômica</td>
+                                <td>Auditório Principal</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </section>
-    
-    <footer>
+
+    <section id="galeria" class="section-padding">
         <div class="container">
-            <div class="logo">ANCESTRAL</div>
-            <p>Projeto cultural que promove o resgate e valorização das culturas indígenas e quilombolas da Bahia</p>
-            <div class="social-links">
-                <a href="#" title="Facebook">Facebook</a>
-                <a href="#" title="Instagram">Instagram</a>
-                <a href="#" title="Twitter">Twitter</a>
-                <a href="#" title="YouTube">YouTube</a>
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Galeria</h2>
+                <hr class="title-divider mx-auto">
+                <p class="lead fs-6 fw-light mt-3">Conheça um pouco das nossas atividades e apresentações:</p>
             </div>
-            <p>&copy; 2025 Projeto Ancestral. Todos os direitos reservados.</p>
+            <div class="row g-3 g-lg-4 gallery-container">
+                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+                    <a href="api/midia/danca.jpg" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="api/midia/danca.jpg" class="gallery-item">
+                        <img src="api/midia/danca.jpg" alt="Atividade de Dança" class="img-fluid">
+                        <div class="gallery-overlay"><i class="bi bi-arrows-fullscreen"></i></div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="150">
+                     <a href="api/midia/teatro.jpg" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="api/midia/teatro.jpg" class="gallery-item">
+                        <img src="api/midia/teatro.jpg" alt="Apresentação de Teatro" class="img-fluid">
+                        <div class="gallery-overlay"><i class="bi bi-arrows-fullscreen"></i></div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+                     <a href="api/midia/oficina-culinaria.jpg" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="api/midia/oficina-culinaria.jpg" class="gallery-item">
+                        <img src="api/midia/oficina-culinaria.jpg" alt="Oficina de Culinária" class="img-fluid">
+                        <div class="gallery-overlay"><i class="bi bi-arrows-fullscreen"></i></div>
+                    </a>
+                </div>
+                 <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="250">
+                     <a href="api/midia/evento-literario.jpg" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="api/midia/evento-literario.jpg" class="gallery-item">
+                        <img src="api/midia/evento-literario.jpg" alt="Evento Literário" class="img-fluid">
+                        <div class="gallery-overlay"><i class="bi bi-arrows-fullscreen"></i></div>
+                    </a>
+                </div>
+                 <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+                     <a href="api/midia/atividade-musical.jpg" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="api/midia/atividade-musical.jpg" class="gallery-item">
+                        <img src="api/midia/atividade-musical.jpg" alt="Estudantes em Atividade Musical" class="img-fluid">
+                        <div class="gallery-overlay"><i class="bi bi-arrows-fullscreen"></i></div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="350">
+                     <a href="api/midia/oficina-de-arte.jpg" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="api/midia/oficina-de-arte.jpg" class="gallery-item">
+                        <img src="api/midia/oficina-de-arte.jpg" alt="Arte Ancestral" class="img-fluid">
+                        <div class="gallery-overlay"><i class="bi bi-arrows-fullscreen"></i></div>
+                    </a>
+                </div>
+                 <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="400">
+                     <a href="api/midia/detalhe-cultural.jpg" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="api/midia/detalhe-cultural.jpg" class="gallery-item">
+                        <img src="api/midia/detalhe-cultural.jpg" alt="Detalhe Cultural" class="img-fluid">
+                        <div class="gallery-overlay"><i class="bi bi-arrows-fullscreen"></i></div>
+                    </a>
+                </div>
+                 <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="450">
+                     <a href="api/midia/evento.jpg" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="api/midia/evento.jpg" class="gallery-item">
+                        <img src="api/midia/evento.jpg" alt="Comunidade Reunida" class="img-fluid">
+                        <div class="gallery-overlay"><i class="bi bi-arrows-fullscreen"></i></div>
+                    </a>
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content bg-transparent border-0">
+                <div class="modal-header border-0">
+                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <img src="" id="modalImage" class="img-fluid" alt="Imagem da Galeria Ampliada">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section id="contato" class="section-padding bg-light-custom">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Entre em Contato</h2>
+                 <hr class="title-divider mx-auto">
+                <p class="lead fs-6 fw-light mt-3">Tem dúvidas ou quer saber como apoiar o projeto? Fale conosco!</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
+                    <div class="form-wrapper p-4 p-md-5">
+                        <form>
+                            <div class="mb-3">
+                                <label for="contactName" class="form-label">Nome Completo</label>
+                                <input type="text" class="form-control" id="contactName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="contactEmail" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="contactEmail" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="contactSubject" class="form-label">Assunto</label>
+                                <input type="text" class="form-control" id="contactSubject">
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="escola" class="form-label">Escola</label>
+                                <select class="form-select" id="escola" name="escola" required>
+                                    <option value="">Selecione a escola</option>
+                                    <option value="2dejulho">Colégio 2 de Julho</option>
+                                    <option value="euclides">Colégio Euclides Sant'anna</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="contactMessage" class="form-label">Mensagem</label>
+                                <textarea class="form-control" id="contactMessage" rows="5" required></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-custom btn-accent btn-lg">Enviar Mensagem</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-ancestral text-center text-lg-start">
+        <div class="container p-4">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+                    <h5 class="footer-brand">ANCESTRAL</h5>
+                    <p class="small footer-description">
+                        Preservando e celebrando as raízes culturais indígenas e quilombolas na Bahia através da arte e educação.
+                    </p>
+                    <div class="social-links mt-3">
+                        <a href="#!" class="social-icon me-2"><i class="bi bi-facebook"></i></a>
+                        <a href="#!" class="social-icon me-2"><i class="bi bi-instagram"></i></a>
+                        <a href="#!" class="social-icon"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6">
+                    <h5 class="footer-heading">Projeto</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#sobre">Sobre Nós</a></li>
+                        <li><a href="#atividades">Atividades</a></li>
+                        <li><a href="#escolas">Escolas</a></li>
+                        <li><a href="#galeria">Galeria</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6">
+                    <h5 class="footer-heading">Participe</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#contato">Inscrições</a></li>
+                        <li><a href="#cronograma">Cronograma</a></li>
+                        <li><a href="#contato">Apoie</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="footer-heading">Contato</h5>
+                    <ul class="list-unstyled footer-contact">
+                        <li><i class="bi bi-envelope-fill me-2"></i> <a href="mailto:contato@projetoancestral.org.br">contato@projetoancestral.org.br</a></li>
+                        <li><i class="bi bi-telephone-fill me-2"></i> (71) 99999-0000</li>
+                        <li><i class="bi bi-geo-alt-fill me-2"></i> Salvador, Bahia, Brasil</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright text-center p-3">
+            © 2024 Projeto Ancestral. Todos os direitos reservados. Desenvolvido com <i class="bi bi-heart-fill text-accent"></i>.
         </div>
     </footer>
-    
-    <script>
-        // Smooth scroll para links internos
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                if(this.getAttribute('href') === '#top') {
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                } else {
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Formulário de contato
-        document.querySelectorAll('form').forEach(form => {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Formulário enviado com sucesso! Em breve entraremos em contato.');
-                form.reset();
-            });
-        });
 
-        let lastScrollTop = 0;
-        const menu = document.getElementById('menu_container');
-      
-        window.addEventListener('scroll', () => {
-          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      
-          if (scrollTop > lastScrollTop) {
-            // Rolando para baixo
-            menu.style.top = '-400px'; // Esconde o menu
-          } else {
-            // Rolando para cima
-            menu.style.top = '0'; // Mostra o menu
-          }
-      
-          lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
