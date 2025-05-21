@@ -22,7 +22,7 @@ Você pode acessar o site em funcionamento através do seguinte link:
 
 ## Autoria
 
-Este projeto foi desenvolvido por Joseane Maciel, como parte das atividades do curso de Produção Cultural.
+Este projeto foi desenvolvido por **Joseane Maciel**, como parte das atividades do curso de Produção Cultural.
 
 ---
 
