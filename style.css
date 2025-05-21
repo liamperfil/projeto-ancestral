@@ -10,6 +10,93 @@
     --font-primary: 'Poppins', sans-serif;
 }
 
+/* Container do Carrossel de Anunciantes */
+.anunciantes-carousel-container {
+    width: 100%;
+    max-width: 1400px; /* Largura máxima do carrossel */
+    margin: 20px auto;
+    margin-top: 7rem; /* Espaçamento superior */
+    overflow: hidden; /* Essencial para o efeito de slide */
+    position: relative; /* Para posicionar as setas */
+    background-color: var(--color-secondary);
+}
+
+.anunciantes-slides {
+    display: flex; /* Coloca os slides em linha */
+    transition: transform 0.7s ease-in-out; /* Animação da transição */
+    width: 100%; /* O wrapper dos slides terá a largura do container */
+}
+
+.anunciantes-slide {
+    min-width: 100%; /* Cada slide ocupa 100% da largura do container */
+    box-sizing: border-box;
+    display: flex; /* Para centralizar a imagem se necessário */
+    justify-content: center;
+    align-items: center;
+}
+
+.anunciantes-slide img {
+    width: 100%; /* Faz a imagem ocupar toda a largura do slide */
+    height: auto; /* Mantém a proporção da imagem */
+    max-height: 310px; /* Altura máxima para os banners, ajuste conforme necessário */
+    object-fit: contain; /* Garante que a imagem inteira seja visível, sem cortar. Pode usar 'cover' se preferir preencher */
+    display: block;
+}
+
+/* Setas de Navegação */
+.anunciantes-nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 10;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.anunciantes-nav-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.anunciantes-prev {
+    left: 10px;
+}
+
+.anunciantes-next {
+    right: 10px;
+}
+
+/* Indicadores (opcional, se quiser bolinhas) */
+.anunciantes-indicators {
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.anunciantes-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.anunciantes-indicator.active {
+    background-color: #555;
+}
+
 body {
     font-family: var(--font-primary);
     background-color: var(--color-secondary);
