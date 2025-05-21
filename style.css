@@ -20,7 +20,10 @@
     position: relative; /* Para posicionar as setas */
     background-color: var(--color-secondary);
 }
-
+.section-padding .anunciantes-carousel-container {
+    margin-top: -3rem; /* Espaçamento superior */
+    background-color: var(--color-bg-light);
+}
 .anunciantes-slides {
     display: flex; /* Coloca os slides em linha */
     transition: transform 0.7s ease-in-out; /* Animação da transição */
