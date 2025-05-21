@@ -409,6 +409,46 @@ textarea.form-control {
     resize: vertical;
 }
 
+/* Testimonials Section */
+#testimonials {
+    background: var(--color-secondary), url('assets/img/background-depoimentos.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efeito parallax */
+    color: var(--color-text-dark);
+}
+
+#testimonials .section-title::after {
+    background-color: #fff; /* Sublinhado branco */
+}
+
+.testimonial-card {
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo do card semi-transparente */
+    backdrop-filter: blur(5px);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    min-height: 320px; /* Altura mínima para alinhar os cards do carousel */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.testimonial-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 3px solid var(--color-accent); /* Borda amarela na imagem do depoimento */
+    margin: 0 auto;
+}
+
+#testimonialCarousel .carousel-control-prev-icon,
+#testimonialCarousel .carousel-control-next-icon {
+    background-color: var(--color-primary); /* Cor dos controles do carousel */
+    border-radius: 50%;
+    padding: 15px; /* Aumenta a área clicável */
+}
+
 /* Footer */
 .footer-ancestral {
     background-color: var(--color-primary);
