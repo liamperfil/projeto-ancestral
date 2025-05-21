@@ -503,7 +503,7 @@ textarea.form-control {
     font-size: 0.85rem;
     color: rgba(251, 251, 251, 0.6);
 }
-.copyright a {
+.copyright a, .copyright a:visited {
     color: rgba(251, 251, 251, 0.6);
     text-decoration: none;
     transition: color 0.3s ease;
