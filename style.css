@@ -24,13 +24,13 @@
     margin-top: -3rem; /* Espaçamento superior */
     background-color: var(--color-bg-light);
 }
-.anunciantes-slides {
+.anunciantes-slides, .anunciantes-slides2 {
     display: flex; /* Coloca os slides em linha */
     transition: transform 0.7s ease-in-out; /* Animação da transição */
     width: 100%; /* O wrapper dos slides terá a largura do container */
 }
 
-.anunciantes-slide {
+.anunciantes-slide, .anunciantes-slide2 {
     min-width: 100%; /* Cada slide ocupa 100% da largura do container */
     box-sizing: border-box;
     display: flex; /* Para centralizar a imagem se necessário */
@@ -38,7 +38,7 @@
     align-items: center;
 }
 
-.anunciantes-slide img {
+.anunciantes-slide img, .anunciantes-slide2 img {
     width: 100%; /* Faz a imagem ocupar toda a largura do slide */
     height: auto; /* Mantém a proporção da imagem */
     max-height: 310px; /* Altura máxima para os banners, ajuste conforme necessário */
@@ -185,7 +185,6 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-
 /* Hero Section */
 .hero {
     position: relative;
@@ -287,7 +286,6 @@ h1, h2, h3, h4, h5, h6 {
      box-shadow: 0 4px 15px rgba(243, 239, 234, 0.2);
 }
 
-
 /* Section Titles */
 .section-title {
     font-size: 2.5rem;
@@ -303,7 +301,6 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 1;
     margin-bottom: 1.5rem; /* Replaces margin on section-title */
 }
-
 
 /* Activity Cards */
 .activity-card {
@@ -378,7 +375,6 @@ h1, h2, h3, h4, h5, h6 {
 .text-accent {
     color: var(--color-accent) !important;
 }
-
 
 /* Schedule Table */
 .schedule-wrapper {
