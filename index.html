@@ -57,7 +57,7 @@
                 <h2 class="hero-subtitle h3 fw-light mb-4">Dança, Teatro e Culinária</h2>
                 <p class="hero-text lead mb-5 mx-auto">Resgatando nossas raízes culturais indígenas e quilombolas na Bahia</p>
                 <div>
-                    <a href="#contato" class="btn btn-custom btn-accent me-sm-3 mb-3 mb-sm-0">Inscreva-se</a>
+                    <a href="#inscricao" class="btn btn-custom btn-accent me-sm-3 mb-3 mb-sm-0">Inscreva-se</a>
                     <a href="#sobre" class="btn btn-custom btn-outline">Saiba Mais</a>
                 </div>
             </div>
@@ -296,12 +296,12 @@
         </div>
     </div>
 
-    <section id="contato" class="section-padding bg-light-custom">
+    <section id="inscricao" class="section-padding bg-light-custom">
         <div class="container">
             <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="section-title">Entre em Contato</h2>
+                <h2 class="section-title">Inscrições abertas</h2>
                  <hr class="title-divider mx-auto">
-                <p class="lead fs-6 fw-light mt-3">Tem dúvidas ou quer saber como apoiar o projeto? Fale conosco!</p>
+                <p class="lead fs-6 fw-light mt-3">Preencha o formulário. Entraremos em contato para confirmar a sua inscrição!</p>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
@@ -315,11 +315,10 @@
                                 <label for="contactEmail" class="form-label">Email</label>
                                 <input type="email" class="form-control" id="contactEmail" required>
                             </div>
-                            <div class="mb-3">
-                                <label for="contactSubject" class="form-label">Assunto</label>
-                                <input type="text" class="form-control" id="contactSubject">
+                            <div class="mb-4">
+                                <label for="telefone" class="form-label">Telefone:</label>
+                                <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="(00)00000-0000" maxlength="15" required>
                             </div>
-
                             <div class="mb-4">
                                 <label for="escola" class="form-label">Escola</label>
                                 <select class="form-select" id="escola" name="escola" required>
@@ -328,7 +327,16 @@
                                     <option value="euclides">Colégio Euclides Sant'anna</option>
                                 </select>
                             </div>
-
+                            <div class="mb-4">
+                                <label for="curso" class="form-label">Cursos</label>
+                                <select class="form-select" id="curso" name="curso" required>
+                                    <option value="">Selecione o curso de interesse</option>
+                                    <option value="culinaria">Culinária</option>
+                                    <option value="danca">Dança</option>
+                                    <option value="roda-literaria">Roda Literária</option>
+                                    <option value="teatro">Teatro</option>
+                                </select>
+                            </div>
                             <div class="mb-4">
                                 <label for="contactMessage" class="form-label">Mensagem</label>
                                 <textarea class="form-control" id="contactMessage" rows="5" required></textarea>
@@ -345,46 +353,60 @@
 
     <section id="testimonials" class="py-5">
         <div class="container">
-            <h2 class="text-center mb-5 section-title">O Que Nossos Alunos Dizem</h2>
-            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="testimonial-card">
-                            <img src="api/depoimentos/maria.jpg" alt="Maria S." class="testimonial-img rounded-circle">
-                            <p class="mt-3">"Uma experiência massa! A equipe da Ancestral nos proporcionou um olhar profundo sobre nossa cultura, coisas que eu jamais esquecerei."</p>
-                            <h5 class="mb-0">Maria S.</h5>
-                            <small class="text-muted">Itinga</small>
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">O que estão comentando?</h2>
+                <hr class="title-divider mx-auto">
+                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="testimonial-card">
+                                <img src="api/depoimentos/maria.jpg" alt="Maria S." class="testimonial-img rounded-circle">
+                                <p class="mt-3">"Uma experiência massa! A equipe da Ancestral nos proporcionou um olhar profundo sobre nossa cultura, coisas que eu jamais esquecerei."</p>
+                                <h5 class="mb-0">Maria S.</h5>
+                                <small class="text-muted">Itinga</small>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="testimonial-card">
+                                <img src="api/depoimentos/joao.jpg" alt="João R." class="testimonial-img rounded-circle">
+                                <p class="mt-3">"Este projeto é um farol de criatividade, conectando pessoas e valorizando a arte e a história."</p>
+                                <h5 class="mb-0">João R.</h5>
+                                <small class="text-muted">Areia Branca</small>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="testimonial-card">
+                                <img src="api/depoimentos/ana.jpg" alt="Ana L." class="testimonial-img rounded-circle">
+                                <p class="mt-3">"Amei cada momento da rota Quilombola. Acolhimento, aprendizado e muita emoção. Obrigada!"</p>
+                                <h5 class="mb-0">Ana L.</h5>
+                                <small class="text-muted">Mussurunga</small>
+                            </div>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <div class="testimonial-card">
-                            <img src="api/depoimentos/joao.jpg" alt="João R." class="testimonial-img rounded-circle">
-                            <p class="mt-3">"Este projeto é um farol de criatividade, conectando pessoas e valorizando a arte e a história."</p>
-                            <h5 class="mb-0">João R.</h5>
-                            <small class="text-muted">Areia Branca</small>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="testimonial-card">
-                            <img src="api/depoimentos/ana.jpg" alt="Ana L." class="testimonial-img rounded-circle">
-                            <p class="mt-3">"Amei cada momento da rota Quilombola. Acolhimento, aprendizado e muita emoção. Obrigada!"</p>
-                            <h5 class="mb-0">Ana L.</h5>
-                            <small class="text-muted">Mussurunga</small>
-                        </div>
-                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Próximo</span>
+                    </button>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Anterior</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Próximo</span>
-                </button>
             </div>
         </div>
     </section>
-  
+    <section id="contato" class="section-padding bg-light-custom">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Entre em Contato</h2>
+                 <hr class="title-divider mx-auto">
+                <p class="lead fs-6 fw-light mt-3">Tem dúvidas ou quer saber como apoiar o projeto? Fale conosco!</p>
+                <p class="lead fs-6 fw-light mt-3"><i class="bi bi-envelope-fill me-2"></i>contato@projetoancestral.org.br</li></p>
+                <p class="lead fs-6 fw-light mt-3"><i class="bi bi-telephone-fill me-2"></i> (71) 99999-0000</li></p>
+            </div>
+
+        </div>
+    </section>
     <footer class="footer-ancestral text-center text-lg-start">
         <div class="container p-4">
             <div class="row gy-4">
@@ -413,19 +435,21 @@
                 <div class="col-lg-2 col-md-4 col-6">
                     <h5 class="footer-heading">Participe</h5>
                     <ul class="list-unstyled footer-links">
-                        <li><a href="#contato">Inscrições</a></li>
+                        <li><a href="#inscricao">Inscrições</a></li>
                         <li><a href="#cronograma">Cronograma</a></li>
                         <li><a href="#contato">Apoie</a></li>
-                        <li><a href="#contato">Contato</a></li>
+
+                        <li><a href="api/galeria/doacao.jpg" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="api/galeria/doacao.jpg">Doações</a></li>
+                        <li><a href="api/galeria/contato.jpg" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="api/galeria/contato.jpg">Contato</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-4 col-md-4">
                     <h5 class="footer-heading">Contato</h5>
                     <ul class="list-unstyled footer-contact">
-                        <li><i class="bi bi-envelope-fill me-2"></i> <a href="mailto:joseanemaciel3@gmail.com">joseanemaciel3@gmail.com</a></li>
+                        <li><i class="bi bi-envelope-fill me-2"></i> <a href="mailto:joseanemaciel3@gmail.com">contato@projetoancestral.org.br</a></li>
                         <li><i class="bi bi-telephone-fill me-2"></i> (71) 99999-0000</li>
-                        <li><i class="bi bi-geo-alt-fill me-2"></i> Salvador, Bahia, Brasil</li>
+                        <li><i class="bi bi-geo-alt-fill me-2"></i> Lauro de Freitas, Bahia, Brasil</li>
                     </ul>
                 </div>
             </div>
