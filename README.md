@@ -17,7 +17,7 @@ Você pode acessar o site em funcionamento através do seguinte link:
 ## Tecnologias Utilizadas (Exemplo - pode ser adaptado conforme o projeto)
 
 * HTML
-* CSS
+* CSS, Bootstrap
 * JavaScript
 
 ## Autoria
