@@ -10,6 +10,193 @@
     --font-primary: 'Poppins', sans-serif;
 }
 
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-secondary);
+    color: var(--color-text-dark);
+    overflow-x: hidden;
+    line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+.bg-light-custom {
+    background-color: var(--color-bg-light) !important;
+}
+
+/* Navbar */
+.navbar {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease-in-out;
+    padding: 0.8rem 0;
+}
+
+.navbar.scrolled {
+    background-color: var(--color-bg-light);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 0.6rem 0;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    letter-spacing: 0.5px;
+}
+
+.navbar-toggler {
+    border: none;
+    color: var(--color-primary);
+    font-size: 1.5rem;
+}
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-nav .nav-link {
+    color: var(--color-text-dark);
+    font-weight: 500;
+    padding: 0.6rem 1rem;
+    margin: 0 0.2rem;
+    border-radius: 5px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+    color: var(--color-accent);
+    background-color: rgba(229, 115, 115, 0.1);
+}
+
+.navbar-nav .nav-link.active {
+    color: var(--color-accent);
+    font-weight: 600;
+    background-color: rgba(229, 115, 115, 0.15);
+}
+
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background-color: var(--color-bg-light);
+        padding: 1rem;
+        margin-top: 0.5rem;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .navbar-nav .nav-link {
+        margin: 0.3rem 0;
+    }
+}
+
+/* conteiner inicio */
+
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 500px;
+    color: var(--color-text-light);
+    overflow: hidden;
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 0;
+    pointer-events: none; /* Allows clicks to go through if needed, though covered by overlay */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 0; /* Centered by flex */
+}
+
+.hero-title {
+    color: var(--color-primary);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+    color: var(--color-text-dark);
+     text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
+}
+
+.hero-text {
+    max-width: 600px;
+    color: var(--color-text-dark);
+    opacity: 0.9;
+}
+
+/* Buttons */
+.btn-custom {
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border: 2px solid transparent;
+    background-color: var(--color-primary);
+}
+
+.btn-accent {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-text-light);
+}
+
+.btn-accent:hover {
+    background-color: #d35f5f; /* Darker accent */
+    border-color: #d35f5f;
+    color: var(--color-text-light);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(229, 115, 115, 0.3);
+}
+
+.btn-outline {
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+}
+
+.btn-outline:hover {
+    background-color: #533931;
+    color: var(--color-bg-light);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(243, 239, 234, 0.2);
+}
+
 /* Container do Carrossel de Anunciantes */
 .anunciantes-carousel-container {
     width: 100%;
@@ -98,193 +285,7 @@
 
 .anunciantes-indicator.active {
     background-color: #555;
-}
-
-body {
-    font-family: var(--font-primary);
-    background-color: var(--color-secondary);
-    color: var(--color-text-dark);
-    overflow-x: hidden;
-    line-height: 1.7;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
-    color: var(--color-primary);
-}
-
-.section-padding {
-    padding: 80px 0;
-}
-
-.bg-light-custom {
-    background-color: var(--color-bg-light) !important;
-}
-
-/* Navbar */
-.navbar {
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease-in-out;
-    padding: 0.8rem 0;
-}
-
-.navbar.scrolled {
-    background-color: var(--color-bg-light);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    padding: 0.6rem 0;
-}
-
-.navbar-brand {
-    font-weight: 700;
-    font-size: 1.8rem;
-    color: var(--color-primary);
-    letter-spacing: 0.5px;
-}
-
-.navbar-toggler {
-    border: none;
-    color: var(--color-primary);
-    font-size: 1.5rem;
-}
-.navbar-toggler:focus {
-    box-shadow: none;
-}
-
-.navbar-nav .nav-link {
-    color: var(--color-text-dark);
-    font-weight: 500;
-    padding: 0.6rem 1rem;
-    margin: 0 0.2rem;
-    border-radius: 5px;
-    transition: color 0.3s ease, background-color 0.3s ease;
-}
-
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link:focus {
-    color: var(--color-accent);
-    background-color: rgba(229, 115, 115, 0.1);
-}
-
-.navbar-nav .nav-link.active {
-    color: var(--color-accent);
-    font-weight: 600;
-    background-color: rgba(229, 115, 115, 0.15);
-}
-
-@media (max-width: 991px) {
-    .navbar-collapse {
-        background-color: var(--color-bg-light);
-        padding: 1rem;
-        margin-top: 0.5rem;
-        border-radius: 8px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    .navbar-nav .nav-link {
-        margin: 0.3rem 0;
-    }
-}
-
-/* Hero Section */
-.hero {
-    position: relative;
-    height: 100vh;
-    min-height: 500px;
-    color: var(--color-text-light);
-    overflow: hidden;
-}
-
-.video-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
-
-.video-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(40, 28, 21, 0.7); /* Darker overlay for better text contrast */
-    z-index: 1;
-}
-
-.video-bg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translateX(-50%) translateY(-50%);
-    z-index: 0;
-    pointer-events: none; /* Allows clicks to go through if needed, though covered by overlay */
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    padding-top: 0; /* Centered by flex */
-}
-
-.hero-title {
-    color: var(--color-text-light);
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-}
-
-.hero-subtitle {
-    color: var(--color-secondary);
-     text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
-}
-
-.hero-text {
-    max-width: 600px;
-    color: var(--color-secondary);
-    opacity: 0.9;
-}
-
-/* Buttons */
-.btn-custom {
-    padding: 0.75rem 2rem;
-    border-radius: 50px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    border: 2px solid transparent;
-}
-
-.btn-accent {
-    background-color: var(--color-accent);
-    border-color: var(--color-accent);
-    color: var(--color-text-light);
-}
-
-.btn-accent:hover {
-    background-color: #d35f5f; /* Darker accent */
-    border-color: #d35f5f;
-    color: var(--color-text-light);
-    transform: translateY(-3px);
-    box-shadow: 0 4px 15px rgba(229, 115, 115, 0.3);
-}
-
-.btn-outline {
-    border-color: var(--color-secondary);
-    color: var(--color-secondary);
-}
-
-.btn-outline:hover {
-    background-color: var(--color-secondary);
-    color: var(--color-primary);
-    transform: translateY(-3px);
-     box-shadow: 0 4px 15px rgba(243, 239, 234, 0.2);
-}
+} /* fim anunciantes */
 
 /* Section Titles */
 .section-title {
