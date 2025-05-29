@@ -367,11 +367,30 @@
                                 <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="(00)00000-0000" maxlength="15" required>
                             </div>
                             <div class="mb-4">
+                                <label for="idade" class="form-label">Idade:</label>
+                                <input type="number" class="form-control" id="idade" name="idade" min="11" max="89" required>
+                            </div>
+                            <div class="mb-4">
                                 <label for="escola" class="form-label">Escola</label>
                                 <select class="form-select" id="escola" name="escola" required>
                                     <option value="">Selecione a escola</option>
-                                    <option value="2dejulho">Colégio 2 de Julho</option>
+                                    <option value="alfredo">Colégio Estadual Alfredo Agostinho de Deus</option>
                                     <option value="euclides">Colégio Euclides Sant'anna</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label for="escola" class="form-label">Nível escolar</label>
+                                <select class="form-select" id="serie" name="serie" required>
+                                    <option value="">Selecione sua série</option>
+                                    <option value="5">5º ano - Fundamental II</option>
+                                    <option value="6">6º ano - Fundamental II</option>
+                                    <option value="7">7º ano - Fundamental II</option>
+                                    <option value="8">8º ano - Fundamental II</option>
+                                    <option value="9">9º ano - Fundamental II</option>
+                                    <option value="1">1º ano - Médio</option>
+                                    <option value="2">2º ano - Médio</option>
+                                    <option value="3">3º ano - Médio</option>
                                 </select>
                             </div>
                             <div class="mb-4">
@@ -486,6 +505,11 @@
                 <p class="lead fs-6 fw-light mt-3">Tem dúvidas ou quer saber como apoiar o projeto? Fale conosco!</p>
                 <p class="lead fs-6 fw-light mt-3"><i class="bi bi-envelope-fill me-2"></i>contato@projetointinearte.org.br</li></p>
                 <p class="lead fs-6 fw-light mt-3"><i class="bi bi-telephone-fill me-2"></i> (71) 99999-0000</li></p>
+
+                <div class="button-container">
+                    <a class="button green-button" href="api/galeria/qrcode-pix.jpg" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="api/galeria/qrcode-pix.jpg">QUERO DOAR</a>
+                    <a class="button white-button" href="api/galeria/qrcode-pix.jpg" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="api/galeria/qrcode-pix.jpg">QR CODE PIX</a>
+                </div>
             </div>
         </div>
     </section>
@@ -537,10 +561,11 @@
                     <ul class="list-unstyled footer-links">
                         <li><a href="#inscricao">Inscrições</a></li>
                         <li><a href="#cronograma">Cronograma</a></li>
-                        <li><a href="#contato">Apoie</a></li>
+                        <li><a href="#contato">Contato</a></li>
 
-                        <li><a href="api/galeria/doacao.jpg" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="api/galeria/doacao.jpg">Doações</a></li>
-                        <li><a href="api/galeria/contato.jpg" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="api/galeria/contato.jpg">Contato</a></li>
+                        <li><a href="api/galeria/qrcode-pix.jpg" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="api/galeria/qrcode-pix.jpg">Apoie</a></li>
+                        <li><a href="api/galeria/qrcode-pix.jpg" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img-src="api/galeria/qrcode-pix.jpg">Doações</a></li>
+                        
                     </ul>
                 </div>
 
