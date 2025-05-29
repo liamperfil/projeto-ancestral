@@ -1,5 +1,6 @@
 .button-container {
     gap: 20px; /* Adjust the space between buttons as needed */
+    margin-top: 1rem;
 }
 
 .button {
