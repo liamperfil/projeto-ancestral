@@ -1,4 +1,4 @@
-# Projeto Ancestral
+# Projeto Intinearte
 
 ## Sobre o Projeto
 
