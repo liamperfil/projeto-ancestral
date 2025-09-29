@@ -28,7 +28,7 @@ Realizado por meio de uma parceria entre o Ministério do Trabalho e Emprego (MT
 
 ## Autoria
 
-Este projeto foi desenvolvido por **Joseane Maciel**, como parte das atividades do curso de Produção Cultural.
+Este projeto foi desenvolvido por **Jean Lima e Joseane Maciel**, como parte das atividades do curso de Produção Cultural.
 
 ---
 
